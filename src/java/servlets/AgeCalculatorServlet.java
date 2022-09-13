@@ -29,9 +29,9 @@ public class AgeCalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
             
 
-        String bDate = request.getParameter("bDate");
+        String age = request.getParameter("cAge");
         
-         request.setAttribute("bDate", bDate);
+         request.setAttribute("cAge", age);
 
 
 
