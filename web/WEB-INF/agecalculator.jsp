@@ -17,6 +17,7 @@
             Enter your age: <input type="number" name="cAge">
             <br>
             <button type="submit" name="ageNextBirthday" >Age next birthday</button>
+            <div>Test</div>
             
         </form>
         <div></div>
