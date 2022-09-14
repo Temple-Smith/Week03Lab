@@ -14,9 +14,14 @@ public class AgeCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
                 .forward(request, response);
+        
+//        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+//                .forward(request, response);
     }
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -58,5 +63,9 @@ public class AgeCalculatorServlet extends HttpServlet {
                     getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
                 .forward(request, response);
                 }
+                //Testing
+//                getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+//                .forward(request, response);
+                //Testing
     }
 }

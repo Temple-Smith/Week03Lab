@@ -17,7 +17,7 @@
             Enter your age: <input type="text" name="Age" value=""><br>
             <input type="submit" value="Age next birthday">    
         </form>
-            <p>${message}</p>
-            <p>${age}</p>
+           <p>${age}</p>
+           <a href="C:\Users\Drew-\Desktop\Web App\Week3Lab_Calculators\web\WEB-INF\arithmeticcalculator.jsp">Arithmetic</a>
     </body>
 </html>
