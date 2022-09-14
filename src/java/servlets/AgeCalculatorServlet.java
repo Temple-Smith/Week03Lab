@@ -20,53 +20,43 @@ public class AgeCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                
+            
+            //get the age parameter from the POST request
             String age = request.getParameter("Age");
+            //set attribute for the JSP
             request.setAttribute("Age", age);
                 
+            //validation: if parameter does not exist or is empty display page again.
                 if (age == null || age.equals("")) {
-                    
+                    //set attribute for age
                     request.setAttribute("age","You must give your current age.");
                     
+                    // forward the request and response objects to the JSP
+                    // display the form again
                     getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
                 .forward(request, response);
                     return;
                 }
-                
+            //validation: parse parameter for integer value and increment     
                 try {
-                //}
-               
-                
-                
-//                else if (age.contains(" ") ||  ) {
-//                    request.setAttribute("age","You must enter a number, not s");
-//                    
-//                    getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
-//                .forward(request, response);
-//                }
-                
-                
                 int newAge = Integer.parseInt(request.getParameter("Age")) + 1;
-                
+                    //set attribute for age
                     request.setAttribute("age","Your age next birthday will be " + newAge);
                     
+                    // forward the request and response objects to the JSP
+                    // display the form again
                     getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
                 .forward(request, response);
                 }
+            //validation: handle number format error (String to Integer Conversion)
                 catch (NumberFormatException e) {
-                     request.setAttribute("message","You must enter a number.");
+                    //set attribute for age
+                     request.setAttribute("age","You must enter a number.");
                     
+                    // forward the request and response objects to the JSP
+                    // display the form again
                     getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
                 .forward(request, response);
                 }
-                    
-//                if(age == ("s")) throws NumberFormatException {
-//                    request.setAttribute("message","You must enter a number, not s");
-//                    
-//                    getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
-//                .forward(request, response);    
-//                   
-//                }
-              
     }
 }
