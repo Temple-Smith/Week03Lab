@@ -33,11 +33,40 @@ public class AgeCalculatorServlet extends HttpServlet {
                     return;
                 }
                 
+                try {
+                //}
+               
+                
+                
+//                else if (age.contains(" ") ||  ) {
+//                    request.setAttribute("age","You must enter a number, not s");
+//                    
+//                    getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
+//                .forward(request, response);
+//                }
+                
+                
                 int newAge = Integer.parseInt(request.getParameter("Age")) + 1;
                 
                     request.setAttribute("age","Your age next birthday will be " + newAge);
                     
                     getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
-                .forward(request, response);     
-            }
+                .forward(request, response);
+                }
+                catch (NumberFormatException e) {
+                     request.setAttribute("message","You must enter a number.");
+                    
+                    getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
+                .forward(request, response);
+                }
+                    
+//                if(age == ("s")) throws NumberFormatException {
+//                    request.setAttribute("message","You must enter a number, not s");
+//                    
+//                    getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
+//                .forward(request, response);    
+//                   
+//                }
+              
+    }
 }
