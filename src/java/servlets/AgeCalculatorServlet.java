@@ -27,11 +27,31 @@ public class AgeCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            
-
-        String age = request.getParameter("cAge");
+       //int age = Integer.parseInt(request.getParameter("cAge"));
+       //age = Integer.parseInt(request.getParameter("Age"));
+        String age = request.getParameter("Age");
+        //int newAge = Integer.parseInt(request.getParameter("Age")) + 1;
         
-         request.setAttribute("cAge", age);
+        request.setAttribute("Age", age);
+       
+    if (age == null || age.equals("")) {
+        request.setAttribute("age","You must give your current age.");
+        
+        
+        getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
+                .forward(request, response);
+        return;
+    }
+     
+    
+    //else {
+        int newAge = Integer.parseInt(request.getParameter("Age")) + 1;
+        request.setAttribute("age","Your age next birthday will be " + newAge);
+        
+        getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
+                .forward(request, response);
+     
+    }
 
 
 
@@ -48,7 +68,7 @@ public class AgeCalculatorServlet extends HttpServlet {
             //out.println("</body>");
             //out.println("</html>");
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -86,3 +106,11 @@ public class AgeCalculatorServlet extends HttpServlet {
     //}// </editor-fold>
 
 //}
+
+/*function required(cAge) {
+if (cAge.value.length == 0) {
+alert("Enter a value");
+return false;
+}
+return true;
+}*/

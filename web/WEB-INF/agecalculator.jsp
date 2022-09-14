@@ -14,12 +14,10 @@
     <body>
         <h1>Age Calculator</h1>
         <form method="post" action="AgeCalculator">
-            Enter your age: <input type="number" name="cAge">
-            <br>
-            <button type="submit" name="ageNextBirthday" >Age next birthday</button>
-            <div>Test 2</div>
-            
+            Enter your age: <input type="number" name="Age" value="${age}"><br>
+            <input type="submit" value="Age next birthday">    
         </form>
-        <div></div>
+            <p>${message}</p>
+            <p>${age}</p>
     </body>
 </html>
