@@ -46,7 +46,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
            
             
             
-            if (first.equals("") || second.equals("") ) {
+            if (first.equals("") && second.equals("")) {
                     //set attribute for result
                     request.setAttribute("result","---");
                     
