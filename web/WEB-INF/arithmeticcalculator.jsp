@@ -16,12 +16,12 @@
         <form method="post" action="ArithmeticCalculator">
             First: <input type="text" name="First" value="${first}"><br>
             Second: <input type="text" name="Second" value="${second}"><br>
-            <input type="submit" name="add" value="+">
-            <input type="submit" name="sub" value="-">  
-            <input type="submit" name="multi" value="*">  
-            <input type="submit" name="divi" value="%">  
+            <input type="submit" name="action" value="+"/>
+            <input type="submit" name="action" value="-"/>  
+            <input type="submit" name="action" value="*"/>  
+            <input type="submit" name="action" value="%"/>  
         </form>
         <p>${result}<p>
-        <a href="=agecalculator.jsp">Age Calculator</a>
+        <a href="AgeCalculator">Age Calculator</a>
     </body>
 </html>
