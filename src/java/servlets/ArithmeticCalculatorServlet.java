@@ -24,7 +24,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+        getServletContext().getRequestDispatcher("/web/arithmeticcalculator.jsp")
                 .forward(request, response);
     }
     
@@ -32,9 +32,14 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //System.out.println("Test");
+            //get the age parameter from the POST request
+            String first = request.getParameter("First");
+            String second = request.getParameter("Second");
+            //set attribute for the JSP
+            request.setAttribute("First", first);
+            request.setAttribute("Second", second);
         
-        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+        getServletContext().getRequestDispatcher("/web/arithmeticcalculator.jsp")
                 .forward(request, response);
     }
 }

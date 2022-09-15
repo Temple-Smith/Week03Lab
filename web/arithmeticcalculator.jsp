@@ -9,10 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Week 3 Lab - Arithmetic Calculator</title>
     </head>
     <body>
-        <h1>Creating link to next page...</h1>
-        
+        <h1>Arithmetic Calculator</h1>
+        <form method="post" action="ArithmeticCalculator">
+            First: <input type="text" name="First" value="${first}"><br>
+            Second: <input type="text" name="Second" value="${second}"><br>
+            <input type="submit" name="add" value="+">
+            <input type="submit" name="sub" value="-">  
+            <input type="submit" name="multi" value="*">  
+            <input type="submit" name="divi" value="%">  
+        </form>
+        <p>${result}<p>
+        <a href="=agecalculator.jsp">Age Calculator</a>
     </body>
 </html>
