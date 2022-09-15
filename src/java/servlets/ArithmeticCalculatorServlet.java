@@ -32,7 +32,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
+        //System.out.println("Test");
         
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                 .forward(request, response);
