@@ -24,7 +24,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        getServletContext().getRequestDispatcher("/web/arithmeticcalculator.jsp")
+        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                 .forward(request, response);
     }
     
@@ -38,8 +38,39 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
             //set attribute for the JSP
             request.setAttribute("First", first);
             request.setAttribute("Second", second);
-        
-        getServletContext().getRequestDispatcher("/web/arithmeticcalculator.jsp")
+            
+            if (first == null || first.equals("") || second == null || second.equals("")) {
+                    //set attribute for result
+                    request.setAttribute("result","---");
+                    
+                    // forward the request and response objects to the JSP
+                    // display the form again
+                    getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                 .forward(request, response);
+                    return;
+                }
+            // try catch blocks for all calculations that are integer values.
+            try {
+                int Add = Integer.parseInt(request.getParameter("First")) + Integer.parseInt(request.getParameter("Second"));
+                    //set attribute for age
+                    request.setAttribute("result", Add);
+                    
+                    // forward the request and response objects to the JSP
+                    // display the form again
+                    getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+                .forward(request, response);
+                
+            
+                }
+            
+            catch (NumberFormatException e) {
+                    //set attribute for age
+                     request.setAttribute("result","Invalid");
+                    
+                    // forward the request and response objects to the JSP
+                    // display the form again
+                    getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+                .forward(request, response);
+                }
     }
 }
