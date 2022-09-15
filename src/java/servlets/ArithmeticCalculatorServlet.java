@@ -46,7 +46,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
            
             
             
-            if (first == null || second == null || first.equals("") || second.equals("")) {
+            if (first.equals("") || second.equals("") ) {
                     //set attribute for result
                     request.setAttribute("result","---");
                     
@@ -56,6 +56,8 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                 .forward(request, response);
                     return;
                 }
+            
+            //else if (first == null)
             // try catch blocks for all calculations that are integer values.
             try {
                 if (Action.equals("+")) {
@@ -67,9 +69,9 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                     // forward the request and response objects to the JSP
                     // display the form again
                     getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
-                .forward(request, response); }
+                .forward(request, response); 
+                }
                 
-//-------------------------------------------------------------------------------------------
                 else if (Action.equals("-")) {
                 int Sub = Integer.parseInt(request.getParameter("First")) - Integer.parseInt(request.getParameter("Second"));
                     //set attribute for result
@@ -77,9 +79,9 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                     // forward the request and response objects to the JSP
                     // display the form again
                     getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
-                .forward(request, response); }
-//--------------------------------------------------------------------------------------------    
-                
+                .forward(request, response); 
+                }
+ 
                 else if (Action.equals("*")) {
                 int Mul = Integer.parseInt(request.getParameter("First")) * Integer.parseInt(request.getParameter("Second"));
                     //set attribute for result
@@ -88,10 +90,8 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                     // forward the request and response objects to the JSP
                     // display the form again
                     getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
-                .forward(request, response); }   
-                
-
-//---------------------------------------------------------------------------------------------    
+                .forward(request, response); 
+                }   
                 
                 else if (Action.equals("%")) {
                 double Div = (double)(Integer.parseInt(request.getParameter("First")) / (double)Integer.parseInt(request.getParameter("Second")));
@@ -101,9 +101,10 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                     // forward the request and response objects to the JSP
                     // display the form again
                     getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
-                .forward(request, response); }
-            
+                .forward(request, response); 
                 }
+            
+            }
             
             catch (NumberFormatException e) {
                     //set attribute for result
